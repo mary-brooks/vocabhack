@@ -21,3 +21,9 @@ h2 {
   font-size: 25px;
   text-align: center;
 }
+.card {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+}

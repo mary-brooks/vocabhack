@@ -24,3 +24,17 @@ const cards = [
   { name: 'strawberry', img: 'strawberry-txt.png' },
   { name: 'watermelon', img: 'watermelon-txt.png' },
 ];
+
+const languageGame = new LanguageGame(cards);
+
+window.addEventListener('load', event => {
+  let html = '';
+  languageGame.cards.forEach(card => {
+    html += `
+    <div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat">
+    </div>
+    `;
+  });
+
+  document.querySelector('#game-board').innerHTML = html;
+});
