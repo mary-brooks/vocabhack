@@ -2,6 +2,7 @@ class LanguageGame {
   constructor(cards) {
     this.cards = cards;
     this.pickedCards = [];
+    this.cardPairs = [];
 
     this.shuffleCards();
   }

@@ -3,7 +3,7 @@ const cards = [
   { name: 'banana', img: 'banana.png' },
   { name: 'blueberry', img: 'blueberry.png' },
   { name: 'cherry', img: 'cherry.png' },
-  { name: 'grapes', img: 'grapes.png' },
+  { name: 'grape', img: 'grapes.png' },
   { name: 'lemon', img: 'lemon.png' },
   { name: 'orange', img: 'orange.png' },
   { name: 'peach', img: 'peach.png' },
@@ -42,21 +42,32 @@ window.addEventListener('load', event => {
     card.addEventListener('click', () => {
       console.log('clicked');
 
-      languageGame.pickedCards.push(card);
+      if (!languageGame.pickedCards.includes(card)) {
+        languageGame.pickedCards.push(card);
+      }
 
       if (languageGame.pickedCards.length === 2) {
         firstCard = languageGame.pickedCards[0].getAttribute('data-card-name');
         secondCard = languageGame.pickedCards[1].getAttribute('data-card-name');
 
         if (languageGame.checkIfPair(firstCard, secondCard)) {
-          languageGame.pickedCards[0].setAttribute(
-            'style',
-            'background: acqua'
-          );
-          languageGame.pickedCards[1].setAttribute(
-            'style',
-            'background: acqua'
-          );
+          languageGame.pickedCards.forEach(pickedCard => {
+            languageGame.cardPairs.push(pickedCard);
+          });
+
+          languageGame.shuffleCards();
+
+          let newHtml = '';
+
+          languageGame.cards.forEach(card => {
+            if (card.name === firstCard || card.name === secondCard) {
+              newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background-color: acqua"></div>`;
+            } else {
+              newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
+            }
+          });
+
+          document.querySelector('#game-board').innerHTML = newHtml;
         }
 
         languageGame.pickedCards.length = 0;
