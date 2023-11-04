@@ -27,7 +27,7 @@ const cards = [
 
 const languageGame = new LanguageGame(cards);
 
-window.addEventListener('load', event => {
+function createGameBoard(cards) {
   let html = '';
   languageGame.cards.forEach(card => {
     html += `
@@ -37,41 +37,55 @@ window.addEventListener('load', event => {
   });
 
   document.querySelector('#game-board').innerHTML = html;
+}
+
+function handleClick(card, game) {
+  console.log('clicked');
+
+  if (!game.pickedCards.includes(card)) {
+    game.pickedCards.push(card);
+  }
+
+  if (game.pickedCards.length === 2) {
+    firstCard = game.pickedCards[0].getAttribute('data-card-name');
+    secondCard = game.pickedCards[1].getAttribute('data-card-name');
+
+    if (game.checkIfPair(firstCard, secondCard)) {
+      game.pickedCards.forEach(pickedCard => {
+        game.cardPairs.push(pickedCard.getAttribute('data-card-name'));
+      });
+
+      game.shuffleCards();
+
+      updateGameBoard(game.cards, firstCard, secondCard);
+    }
+
+    game.pickedCards.length = 0;
+  }
+}
+function updateGameBoard(cards) {
+  let newHtml = '';
+
+  cards.forEach(card => {
+    if (languageGame.cardPairs.includes(card.name)) {
+      newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background-color: acqua"></div>`;
+    } else {
+      newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
+    }
+  });
+  document.querySelector('#game-board').innerHTML = newHtml;
 
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
-      console.log('clicked');
-
-      if (!languageGame.pickedCards.includes(card)) {
-        languageGame.pickedCards.push(card);
-      }
-
-      if (languageGame.pickedCards.length === 2) {
-        firstCard = languageGame.pickedCards[0].getAttribute('data-card-name');
-        secondCard = languageGame.pickedCards[1].getAttribute('data-card-name');
-
-        if (languageGame.checkIfPair(firstCard, secondCard)) {
-          languageGame.pickedCards.forEach(pickedCard => {
-            languageGame.cardPairs.push(pickedCard);
-          });
-
-          languageGame.shuffleCards();
-
-          let newHtml = '';
-
-          languageGame.cards.forEach(card => {
-            if (card.name === firstCard || card.name === secondCard) {
-              newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background-color: acqua"></div>`;
-            } else {
-              newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
-            }
-          });
-
-          document.querySelector('#game-board').innerHTML = newHtml;
-        }
-
-        languageGame.pickedCards.length = 0;
-      }
+      handleClick(card, languageGame);
+    });
+  });
+}
+window.addEventListener('load', event => {
+  createGameBoard(languageGame.cards);
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      handleClick(card, languageGame);
     });
   });
 });

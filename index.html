@@ -7,13 +7,31 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
-    <div>
-      <h1>Game Title</h1>
+    <!-- #game-intro is initially shown on the game start screen -->
+    <div id="game-intro">
+      <div>
+        <h1>Game Title</h1>
+      </div>
+
+      <button id="start-button">Start</button>
+      <p>Match the fruits to their names to make pairs!</p>
     </div>
-    <div id="timer">
-      <h2>Time</h2>
+
+    <!-- #game-screen is initially hidden using CSS style display: none -->
+    <div id="game-screen">
+      <div id="timer">
+        <h2>Time</h2>
+      </div>
+      <div id="game-board"></div>
     </div>
-    <div id="game-board"></div>
+
+    <!-- #game-end is initially hidden using CSS style display: none -->
+    <div id="game-end">
+      <h1>Game Over</h1>
+      <br />
+      <button id="restart-button">Restart</button>
+    </div>
+
     <script type="text/javascript" src="src/language.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
   </body>

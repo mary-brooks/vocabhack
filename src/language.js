@@ -3,6 +3,9 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
+    this.startScreen = document.getElementById('game-intro');
+    this.gameScreen = document.getElementById('game-screen');
+    this.gameEndScreen = document.getElementById('game-end');
 
     this.shuffleCards();
   }
