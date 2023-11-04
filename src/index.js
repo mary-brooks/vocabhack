@@ -69,14 +69,17 @@ function handleClick(card, game) {
         game.cardPairs.push(pickedCard.getAttribute('data-card-name'));
       });
 
+      game.checkIfFinished();
+
       game.shuffleCards();
 
-      updateGameBoard(game.cards, firstCard, secondCard);
+      updateGameBoard(game.cards);
     }
 
     game.pickedCards.length = 0;
   }
 }
+
 function updateGameBoard(cards) {
   let newHtml = '';
 
@@ -95,11 +98,3 @@ function updateGameBoard(cards) {
     });
   });
 }
-window.addEventListener('load', event => {
-  createGameBoard(languageGame.cards);
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      handleClick(card, languageGame);
-    });
-  });
-});

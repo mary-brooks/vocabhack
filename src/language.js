@@ -29,4 +29,15 @@ class LanguageGame {
       return false;
     }
   }
+
+  checkIfFinished() {
+    if (this.cardPairs.length === this.cards.length) {
+      this.endGame();
+    }
+  }
+
+  endGame() {
+    this.gameScreen.style.display = 'none';
+    this.gameEndScreen.style.display = 'block';
+  }
 }
