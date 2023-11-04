@@ -10,6 +10,11 @@ class LanguageGame {
     this.shuffleCards();
   }
 
+  start() {
+    this.startScreen.style.display = 'none';
+    this.gameScreen.style.display = 'block';
+  }
+
   shuffleCards() {
     for (let i = this.cards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

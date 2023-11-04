@@ -27,13 +27,9 @@ h2 {
   height: 120px;
   margin: 10px;
 }
-/*#game-screen {
+#game-screen {
   display: none;
-}*/
+}
 #game-end {
   display: none;
 }
-
-/* .hide-card {
-  
-} */

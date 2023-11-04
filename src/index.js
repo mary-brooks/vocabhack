@@ -27,6 +27,20 @@ const cards = [
 
 const languageGame = new LanguageGame(cards);
 
+window.onload = function () {
+  const startButton = document.getElementById('start-button');
+  const restartButton = document.getElementById('restart-button');
+  startButton.addEventListener('click', function () {
+    languageGame.start();
+    createGameBoard(languageGame.cards);
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        handleClick(card, languageGame);
+      });
+    });
+  });
+};
+
 function createGameBoard(cards) {
   let html = '';
   languageGame.cards.forEach(card => {
