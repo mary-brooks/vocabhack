@@ -37,4 +37,30 @@ window.addEventListener('load', event => {
   });
 
   document.querySelector('#game-board').innerHTML = html;
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      console.log('clicked');
+
+      languageGame.pickedCards.push(card);
+
+      if (languageGame.pickedCards.length === 2) {
+        firstCard = languageGame.pickedCards[0].getAttribute('data-card-name');
+        secondCard = languageGame.pickedCards[1].getAttribute('data-card-name');
+
+        if (languageGame.checkIfPair(firstCard, secondCard)) {
+          languageGame.pickedCards[0].setAttribute(
+            'style',
+            'background: acqua'
+          );
+          languageGame.pickedCards[1].setAttribute(
+            'style',
+            'background: acqua'
+          );
+        }
+
+        languageGame.pickedCards.length = 0;
+      }
+    });
+  });
 });
