@@ -26,7 +26,21 @@ h2 {
   width: 120px;
   height: 120px;
   margin: 10px;
+  cursor: pointer;
 }
+
+.card:hover {
+  outline: solid 3px lightgray;
+}
+
+.card.clicked {
+  outline: 2px solid blue;
+}
+
+.card.incorrect {
+  outline: 2px solid red;
+}
+
 #game-screen {
   display: none;
 }

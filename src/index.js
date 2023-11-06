@@ -71,6 +71,8 @@ function createGameBoard(cards) {
 function handleClick(card, game) {
   console.log('clicked');
 
+  card.classList.toggle('clicked');
+
   /*if (languageGame.cards.indexOf(`{ name: '', img: 'apple-txt.png', audio: 'apple.mp3' }`)){
     console.log('I have sound');
     const sound = new Audio(`/sound/${game.card.audio}`);
@@ -96,6 +98,15 @@ function handleClick(card, game) {
 
       updateGameBoard(game.cards);
     }
+    //   else {
+    //   game.pickedCards[0].classList.add('incorrect');
+    //   game.pickedCards[1].classList.add('incorrect');
+
+    //   setTimeout(() => {
+    //     game.pickedCards[0].classList.remove('incorrect');
+    //     game.pickedCards[1].classList.remove('incorrect');
+    //   }, 2000);
+    // }
 
     game.pickedCards.length = 0;
   }
