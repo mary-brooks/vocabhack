@@ -3,9 +3,12 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
+    this.time = 10;
+
     this.startScreen = document.getElementById('game-intro');
     this.gameScreen = document.getElementById('game-screen');
     this.gameEndScreen = document.getElementById('game-end');
+    this.timeDisplay = document.getElementById('timer');
 
     this.shuffleCards();
   }
@@ -34,6 +37,19 @@ class LanguageGame {
     if (this.cardPairs.length === this.cards.length) {
       this.endGame();
     }
+  }
+
+  timer() {
+    const timeLeft = setInterval(() => {
+      this.timeDisplay.innerText = this.time;
+
+      this.time--;
+
+      if (this.time < 0) {
+        clearInterval(timeLeft);
+        this.endGame();
+      }
+    }, 1000);
   }
 
   endGame() {

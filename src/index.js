@@ -40,6 +40,8 @@ window.onload = function () {
         handleClick(card, languageGame);
       });
     });
+
+    languageGame.timer();
   });
 
   restartButton.addEventListener('click', () => {
