@@ -64,6 +64,10 @@ function createGameBoard(cards) {
 function handleClick(card, game) {
   console.log('clicked');
 
+  if (game.card.audio) {
+    game.card.audio.play();
+  }
+
   if (!game.pickedCards.includes(card)) {
     game.pickedCards.push(card);
   }
