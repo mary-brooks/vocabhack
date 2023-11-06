@@ -11,7 +11,7 @@ const cards = [
   { name: 'pineapple', img: 'pineapple.png' },
   { name: 'strawberry', img: 'strawberry.png' },
   { name: 'watermelon', img: 'watermelon.png' },
-  { name: 'apple', img: 'apple-txt.png' },
+  { name: 'apple', img: 'apple-txt.png', audio: 'apple.mp3' },
   { name: 'banana', img: 'banana-txt.png' },
   { name: 'blueberry', img: 'blueberry-txt.png' },
   { name: 'cherry', img: 'cherry-txt.png' },
@@ -30,6 +30,13 @@ const languageGame = new LanguageGame(cards);
 window.onload = function () {
   const startButton = document.getElementById('start-button');
   const restartButton = document.getElementById('restart-button');
+
+  /* function playSound() {
+    const sound = new Audio('/sound/apple.mp3');
+    sound.play();
+  }
+
+  playSound(); */
 
   startButton.addEventListener('click', function () {
     languageGame.start();
@@ -64,9 +71,11 @@ function createGameBoard(cards) {
 function handleClick(card, game) {
   console.log('clicked');
 
-  if (game.card.audio) {
-    game.card.audio.play();
-  }
+  /*if (languageGame.cards.indexOf(`{ name: '', img: 'apple-txt.png', audio: 'apple.mp3' }`)){
+    console.log('I have sound');
+    const sound = new Audio(`/sound/${game.card.audio}`);
+    sound.play();
+  }*/
 
   if (!game.pickedCards.includes(card)) {
     game.pickedCards.push(card);
