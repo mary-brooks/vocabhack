@@ -3,7 +3,7 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
-    this.time = 10;
+    this.time = 30;
 
     this.startScreen = document.getElementById('game-intro');
     this.gameScreen = document.getElementById('game-screen');
@@ -51,6 +51,15 @@ class LanguageGame {
       }
     }, 1000);
   }
+
+  // playSound(card) {
+  //   const cardName = card.getAttribute('data-type-name');
+
+  //   if (card.getAttribute('text')) {
+  //     const sound = new Audio(`/sound/${cardName}.mp3`);
+  //     sound.play();
+  //   }
+  // }
 
   endGame() {
     this.gameScreen.style.display = 'none';

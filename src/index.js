@@ -71,16 +71,10 @@ function createGameBoard(cards) {
 function handleClick(card, game) {
   console.log('clicked');
 
-  card.classList.toggle('clicked');
-
-  /*if (languageGame.cards.indexOf(`{ name: '', img: 'apple-txt.png', audio: 'apple.mp3' }`)){
-    console.log('I have sound');
-    const sound = new Audio(`/sound/${game.card.audio}`);
-    sound.play();
-  }*/
-
   if (!game.pickedCards.includes(card)) {
+    card.classList.toggle('clicked');
     game.pickedCards.push(card);
+    // game.playSound(card);
   }
 
   if (game.pickedCards.length === 2) {
@@ -97,16 +91,19 @@ function handleClick(card, game) {
       game.shuffleCards();
 
       updateGameBoard(game.cards);
-    }
-    //   else {
-    //   game.pickedCards[0].classList.add('incorrect');
-    //   game.pickedCards[1].classList.add('incorrect');
+    } else {
+      game.pickedCards.forEach(pickedCard => {
+        pickedCard.classList.add('incorrect');
+      });
 
-    //   setTimeout(() => {
-    //     game.pickedCards[0].classList.remove('incorrect');
-    //     game.pickedCards[1].classList.remove('incorrect');
-    //   }, 2000);
-    // }
+      setTimeout(() => {
+        console.log('2 seconds has passed');
+
+        game.pickedCards.forEach(pickedCard => {
+          pickedCard.classList.remove('incorrect');
+        });
+      }, 2000);
+    }
 
     game.pickedCards.length = 0;
   }
@@ -117,11 +114,12 @@ function updateGameBoard(cards) {
 
   cards.forEach(card => {
     if (languageGame.cardPairs.includes(card.name)) {
-      newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background-color: acqua"></div>`;
+      newHtml += `<div class = "card matched" data-card-name = "${card.name}"></div>`;
     } else {
       newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
     }
   });
+
   document.querySelector('#game-board').innerHTML = newHtml;
 
   document.querySelectorAll('.card').forEach(card => {

@@ -29,13 +29,36 @@ h2 {
   cursor: pointer;
 }
 
+.card.matched {
+  background-color: aqua;
+}
+
 .card:hover {
   outline: solid 3px lightgray;
+}
+
+.card.matched:hover {
+  outline: none;
+  cursor: auto;
 }
 
 .card.clicked {
   outline: 2px solid blue;
 }
+
+/* @keyframes incorrectOutline {
+  0% {
+    outline: transparent;
+  }
+
+  50% {
+    outline: red;
+  }
+
+  100% {
+    outline: transparent;
+  }
+} */
 
 .card.incorrect {
   outline: 2px solid red;
