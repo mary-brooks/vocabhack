@@ -58,11 +58,7 @@ window.onload = function () {
 function handleClick(card, game) {
   console.log('clicked');
 
-  if (!game.pickedCards.includes(card)) {
-    card.classList.add('clicked');
-    game.pickedCards.push(card);
-    // game.playSound(card);
-  }
+  game.selectCard(card);
 
   if (game.pickedCards.length === 2) {
     firstCard = game.pickedCards[0].getAttribute('data-card-name');

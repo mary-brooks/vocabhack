@@ -47,6 +47,14 @@ class LanguageGame {
     this.pickedCards.length = 0;
   }
 
+  selectCard(clickedCard) {
+    if (!this.pickedCards.includes(clickedCard)) {
+      clickedCard.classList.add('clicked');
+      this.pickedCards.push(clickedCard);
+      // game.playSound(card);
+    }
+  }
+
   shuffleCards() {
     for (let i = this.cards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
