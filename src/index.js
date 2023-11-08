@@ -41,7 +41,6 @@ window.onload = function () {
   startButton.addEventListener('click', function () {
     languageGame.start();
 
-    createGameBoard(languageGame.cards);
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         handleClick(card, languageGame);
@@ -55,18 +54,6 @@ window.onload = function () {
     location.reload();
   });
 };
-
-function createGameBoard(cards) {
-  let html = '';
-  languageGame.cards.forEach(card => {
-    html += `
-    <div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat">
-    </div>
-    `;
-  });
-
-  document.querySelector('#game-board').innerHTML = html;
-}
 
 function handleClick(card, game) {
   console.log('clicked');

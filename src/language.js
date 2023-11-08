@@ -16,6 +16,19 @@ class LanguageGame {
   start() {
     this.startScreen.style.display = 'none';
     this.gameScreen.style.display = 'block';
+    this.createGameBoard();
+  }
+
+  createGameBoard() {
+    let html = '';
+    this.cards.forEach(card => {
+      html += `
+      <div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat">
+      </div>
+      `;
+    });
+
+    document.querySelector('#game-board').innerHTML = html;
   }
 
   shuffleCards() {
