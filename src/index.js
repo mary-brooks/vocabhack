@@ -25,12 +25,12 @@ const cards = [
   { name: 'watermelon', img: 'watermelon-txt.png' },
 ];
 
+const startButton = document.getElementById('start-button');
+const restartButton = document.getElementById('restart-button');
+
 const languageGame = new LanguageGame(cards);
 
 window.onload = function () {
-  const startButton = document.getElementById('start-button');
-  const restartButton = document.getElementById('restart-button');
-
   /* function playSound() {
     const sound = new Audio('/sound/apple.mp3');
     sound.play();
@@ -79,30 +79,13 @@ function handleClick(card, game) {
 
       game.updateGameBoard();
 
-      game.pickedCards.length = 0;
-
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
           handleClick(card, languageGame);
         });
       });
     } else {
-      function incorrectMatch() {
-        game.pickedCards.forEach(pickedCard => {
-          pickedCard.classList.add('incorrect');
-        });
-
-        setTimeout(() => {
-          console.log('2 seconds has passed');
-          console.log(game.pickedCards);
-          game.pickedCards.forEach(pickedCard => {
-            pickedCard.classList.remove('incorrect');
-            pickedCard.classList.remove('clicked');
-          });
-          game.pickedCards.length = 0;
-        }, 1000);
-      }
+      game.incorrectMatch();
     }
-    incorrectMatch();
   }
 }

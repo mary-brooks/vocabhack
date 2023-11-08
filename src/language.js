@@ -44,6 +44,7 @@ class LanguageGame {
     });
 
     this.gameBoard.innerHTML = newHtml;
+    this.pickedCards.length = 0;
   }
 
   shuffleCards() {
@@ -59,6 +60,20 @@ class LanguageGame {
     } else {
       return false;
     }
+  }
+
+  incorrectMatch() {
+    this.pickedCards.forEach(pickedCard => {
+      pickedCard.classList.add('incorrect');
+    });
+
+    setTimeout(() => {
+      this.pickedCards.forEach(pickedCard => {
+        pickedCard.classList.remove('incorrect');
+        pickedCard.classList.remove('clicked');
+      });
+      this.pickedCards.length = 0;
+    }, 1000);
   }
 
   checkIfFinished() {
