@@ -70,6 +70,18 @@ class LanguageGame {
     }
   }
 
+  correctMatch() {
+    this.pickedCards.forEach(pickedCard => {
+      this.cardPairs.push(pickedCard.getAttribute('data-card-name'));
+    });
+
+    this.checkIfFinished();
+
+    this.shuffleCards();
+
+    this.updateGameBoard();
+  }
+
   incorrectMatch() {
     this.pickedCards.forEach(pickedCard => {
       pickedCard.classList.add('incorrect');

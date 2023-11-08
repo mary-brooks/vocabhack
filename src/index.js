@@ -65,15 +65,7 @@ function handleClick(card, game) {
     secondCard = game.pickedCards[1].getAttribute('data-card-name');
 
     if (game.checkIfPair(firstCard, secondCard)) {
-      game.pickedCards.forEach(pickedCard => {
-        game.cardPairs.push(pickedCard.getAttribute('data-card-name'));
-      });
-
-      game.checkIfFinished();
-
-      game.shuffleCards();
-
-      game.updateGameBoard();
+      game.correctMatch();
 
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
