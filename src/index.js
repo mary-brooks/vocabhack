@@ -43,7 +43,7 @@ window.onload = function () {
 
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
-        handleClick(card, languageGame);
+        handleClick(card);
       });
     });
 
@@ -55,25 +55,12 @@ window.onload = function () {
   });
 };
 
-function handleClick(card, game) {
+function handleClick(card) {
   console.log('clicked');
 
-  game.selectCard(card);
+  languageGame.selectCard(card);
 
-  if (game.pickedCards.length === 2) {
-    firstCard = game.pickedCards[0].getAttribute('data-card-name');
-    secondCard = game.pickedCards[1].getAttribute('data-card-name');
-
-    if (game.checkIfPair(firstCard, secondCard)) {
-      game.correctMatch();
-
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', () => {
-          handleClick(card, languageGame);
-        });
-      });
-    } else {
-      game.incorrectMatch();
-    }
+  if (languageGame.pickedCards.length === 2) {
+    languageGame.matchCards();
   }
 }

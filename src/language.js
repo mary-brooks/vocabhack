@@ -70,6 +70,25 @@ class LanguageGame {
     }
   }
 
+  matchCards() {
+    const firstCardName = this.pickedCards[0].getAttribute('data-card-name');
+    const secondCardName = this.pickedCards[1].getAttribute('data-card-name');
+
+    if (this.checkIfPair(firstCardName, secondCardName)) {
+      setTimeout(() => {
+        this.correctMatch();
+
+        document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('click', () => {
+            handleClick(card);
+          });
+        });
+      }, 500);
+    } else {
+      this.incorrectMatch();
+    }
+  }
+
   correctMatch() {
     this.pickedCards.forEach(pickedCard => {
       this.cardPairs.push(pickedCard.getAttribute('data-card-name'));
@@ -93,7 +112,7 @@ class LanguageGame {
         pickedCard.classList.remove('clicked');
       });
       this.pickedCards.length = 0;
-    }, 1000);
+    }, 500);
   }
 
   checkIfFinished() {
