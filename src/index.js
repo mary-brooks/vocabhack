@@ -59,7 +59,7 @@ function handleClick(card, game) {
   console.log('clicked');
 
   if (!game.pickedCards.includes(card)) {
-    card.classList.toggle('clicked');
+    card.classList.add('clicked');
     game.pickedCards.push(card);
     // game.playSound(card);
   }
@@ -79,25 +79,30 @@ function handleClick(card, game) {
 
       game.updateGameBoard();
 
+      game.pickedCards.length = 0;
+
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
           handleClick(card, languageGame);
         });
       });
     } else {
-      game.pickedCards.forEach(pickedCard => {
-        pickedCard.classList.add('incorrect');
-      });
-
-      setTimeout(() => {
-        console.log('2 seconds has passed');
-
+      function incorrectMatch() {
         game.pickedCards.forEach(pickedCard => {
-          pickedCard.classList.remove('incorrect');
+          pickedCard.classList.add('incorrect');
         });
-      }, 2000);
-    }
 
-    game.pickedCards.length = 0;
+        setTimeout(() => {
+          console.log('2 seconds has passed');
+          console.log(game.pickedCards);
+          game.pickedCards.forEach(pickedCard => {
+            pickedCard.classList.remove('incorrect');
+            pickedCard.classList.remove('clicked');
+          });
+          game.pickedCards.length = 0;
+        }, 1000);
+      }
+    }
+    incorrectMatch();
   }
 }
