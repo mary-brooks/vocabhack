@@ -7,6 +7,7 @@ class LanguageGame {
 
     this.startScreen = document.getElementById('game-intro');
     this.gameScreen = document.getElementById('game-screen');
+    this.gameBoard = document.getElementById('game-board');
     this.gameEndScreen = document.getElementById('game-end');
     this.timeDisplay = document.getElementById('timer');
 
@@ -28,7 +29,21 @@ class LanguageGame {
       `;
     });
 
-    document.querySelector('#game-board').innerHTML = html;
+    this.gameBoard.innerHTML = html;
+  }
+
+  updateGameBoard() {
+    let newHtml = '';
+
+    this.cards.forEach(card => {
+      if (this.cardPairs.includes(card.name)) {
+        newHtml += `<div class = "card matched" data-card-name = "${card.name}"></div>`;
+      } else {
+        newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
+      }
+    });
+
+    this.gameBoard.innerHTML = newHtml;
   }
 
   shuffleCards() {

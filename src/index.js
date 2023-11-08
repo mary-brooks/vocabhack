@@ -77,7 +77,13 @@ function handleClick(card, game) {
 
       game.shuffleCards();
 
-      updateGameBoard(game.cards);
+      game.updateGameBoard();
+
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+          handleClick(card, languageGame);
+        });
+      });
     } else {
       game.pickedCards.forEach(pickedCard => {
         pickedCard.classList.add('incorrect');
@@ -94,24 +100,4 @@ function handleClick(card, game) {
 
     game.pickedCards.length = 0;
   }
-}
-
-function updateGameBoard(cards) {
-  let newHtml = '';
-
-  cards.forEach(card => {
-    if (languageGame.cardPairs.includes(card.name)) {
-      newHtml += `<div class = "card matched" data-card-name = "${card.name}"></div>`;
-    } else {
-      newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
-    }
-  });
-
-  document.querySelector('#game-board').innerHTML = newHtml;
-
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      handleClick(card, languageGame);
-    });
-  });
 }
