@@ -49,8 +49,6 @@ window.onload = function () {
         handleClick(card);
       });
     });
-
-    // languageGame.timer();
   });
 
   restartButton.addEventListener('click', () => {

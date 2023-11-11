@@ -1,3 +1,5 @@
+/* general styles */
+
 @font-face {
   font-family: 'dosisregular';
   src: url('/font/dosis-regular-webfont.woff2') format('woff2'),
@@ -5,6 +7,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 html,
 body {
   height: 100%;
@@ -13,9 +16,13 @@ body {
   margin-bottom: 100px;
   overflow: hidden;
 }
+
 body {
   background-color: white;
 }
+
+/* intro screen styles */
+
 #game-intro {
   display: flex;
   flex-direction: column;
@@ -23,10 +30,12 @@ body {
   align-items: center;
   height: 100vh;
 }
+
 #lets-play {
   width: 15%;
   height: auto;
 }
+
 #bottom-left-book {
   width: 15%;
   height: auto;
@@ -34,6 +43,7 @@ body {
   left: 0;
   bottom: 0;
 }
+
 #bottom-right-book {
   width: auto;
   height: 45%;
@@ -41,6 +51,7 @@ body {
   right: 0;
   bottom: 0;
 }
+
 #top-left-book {
   width: 15%;
   height: auto;
@@ -48,6 +59,7 @@ body {
   left: 0;
   top: 0;
 }
+
 #top-right-book {
   width: 15%;
   height: auto;
@@ -55,12 +67,14 @@ body {
   right: 0;
   top: 0;
 }
+
 #logo-start {
   width: 60%;
   height: auto;
   z-index: 2;
   padding: 2% 0;
 }
+
 #start-button {
   width: 20%;
   height: auto;
@@ -68,19 +82,25 @@ body {
   background-color: white;
   cursor: pointer;
 }
-#start-button img {
+
+#start-button > img {
   width: 100%;
   height: auto;
 }
+
+/* loading screen styles */
+
 #game-loading {
   display: none;
   justify-content: center;
   align-items: center;
 }
+
 #loading-screen-img {
-  width: 85%;
+  width: 100%;
   height: auto;
 }
+
 #logo-loading {
   position: fixed;
   right: 0;
@@ -89,6 +109,9 @@ body {
   height: auto;
   padding: 10px;
 }
+
+/* game screen styles */
+
 #gradient {
   width: 100%;
   height: 100%;
@@ -97,17 +120,20 @@ body {
   left: 0;
   z-index: -1;
 }
+
+#game-screen-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #game-screen {
   display: none;
   position: relative;
   width: 100%;
   height: 100%;
 }
-#game-screen-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 #timer-container,
 #points-container {
   font-family: 'dosisregular';
@@ -118,6 +144,14 @@ body {
   width: fit-content;
   height: auto;
 }
+
+#timer {
+  width: 200px;
+  height: 50px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
 #game-board {
   width: 900px;
   height: 600px;
@@ -125,23 +159,7 @@ body {
   border-radius: 2.5%;
   margin: 22.5px auto 0 auto;
 }
-#timer {
-  width: 200px;
-  height: 50px;
-  background-color: bisque;
-  margin: 0px auto;
-  margin-bottom: 20px;
-}
-h1 {
-  color: black;
-  font-size: 45px;
-  text-align: center;
-}
-h2 {
-  color: black;
-  font-size: 25px;
-  text-align: center;
-}
+
 .card {
   display: inline-block;
   width: 120px;
@@ -151,31 +169,42 @@ h2 {
   border-radius: 5%;
   cursor: pointer;
 }
+
 .card.matched {
   background-color: rgba(255, 255, 255, 0.5);
 }
+
 .card:hover {
   outline: solid 3px lightgray;
 }
+
 .card.matched:hover {
   outline: none;
   cursor: auto;
 }
+
 .card.clicked {
-  outline: 2px solid #76E6FF;
+  outline: 2px solid #76e6ff;
 }
+
 .card.incorrect {
-  outline: 2px solid #FFAAE3;
+  outline: 2px solid #ffaae3;
 }
+
+/* game end screens styles */
+
 #game-end {
   display: none;
 }
+
 #win-game-end {
   display: none;
 }
+
 #lose-game-end {
   display: none;
 }
+
 #end-bottom-left {
   width: 15%;
   height: auto;
@@ -183,6 +212,7 @@ h2 {
   left: 0;
   bottom: 0;
 }
+
 #end-bottom-right {
   width: auto;
   height: 45%;
@@ -190,6 +220,7 @@ h2 {
   right: 0;
   bottom: 0;
 }
+
 #end-top-left {
   width: 15%;
   height: auto;
@@ -197,6 +228,7 @@ h2 {
   left: 0;
   top: 0;
 }
+
 #end-top-right {
   width: 15%;
   height: auto;
@@ -204,17 +236,8 @@ h2 {
   right: 0;
   top: 0;
 }
-#restart-button {
-  width: 40%;
-  height: auto;
-  border: none;
-  background-color: white;
-  cursor: pointer;
-}
-#restart-button img {
-  width: 50%;
-  height: auto;
-}
+
+#restart-button,
 #try-again-button {
   width: 40%;
   height: auto;
@@ -222,27 +245,22 @@ h2 {
   background-color: white;
   cursor: pointer;
 }
-#try-again-button img {
+
+#restart-button > img,
+#try-again-button > img {
   width: 50%;
   height: auto;
 }
-#win-game-end {
+
+#win-game-end,
+#lose-game-end {
   display: none;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
-#win-game-end > img {
-  width: 45%;
-  height: auto;
-  padding: 40px 0 30px 0;
-}
-#lose-game-end{
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
+
+#win-game-end > img,
 #lose-game-end > img {
   width: 45%;
   height: auto;
