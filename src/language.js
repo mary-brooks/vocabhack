@@ -106,16 +106,15 @@ class LanguageGame {
   checkIfFinished() {
     if (this.cardPairs.length === this.cards.length) {
       this.winGame();
+    } else if (this.time < 0) {
+      clearInterval(timeLeft);
+      this.loseGame();
     }
   }
   timer() {
     const timeLeft = setInterval(() => {
       this.timeDisplay.innerText = this.time;
       this.time--;
-      if (this.time < 0) {
-        clearInterval(timeLeft);
-        this.loseGame();
-      }
     }, 1000);
   }
   // playSound(card) {
