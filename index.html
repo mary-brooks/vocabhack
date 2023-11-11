@@ -15,13 +15,14 @@
         <img id="top-left-book" src="/img/top-left-book.png" alt="top-left-book">
         <img id="top-right-book" src="/img/top-right-book.png" alt="top-right-book">
         <img id="lets-play" src="/img/lets-play.png" alt="lets-play">
-        <img id="logo" src="/img/vocabhack-logo.png" alt="game-logo">
+        <img id="logo-start" src="/img/vocabhack-logo.png" alt="game-logo">
         <button id="start-button"><img src="/img/start-button-img.png" alt="start-button-img"></button>
       </div>
     </div>
     <!-- #game-loading is initially hidden using CSS style display: none -->
     <div id="game-loading">
-      <img src="img/loading-screen.png" alt="loading-screen">
+      <img id="loading-screen-img" src="img/loading-screen.png" alt="loading-screen">
+      <img id="logo-loading" src="/img/vocabhack-logo.png" alt="game-logo">
     </div>
     <!-- #game-screen is initially hidden using CSS style display: none -->
     <div id="game-screen">
@@ -41,10 +42,19 @@
   </div>
     <!-- #game-end is initially hidden using CSS style display: none -->
     <div id="game-end">
-      <div id="end-container">
-      <h1>Game Over</h1>
-      <br />
-      <button id="restart-button"><img src="/img/restart-button-img.png" alt="restart-button-img"></button>
+      <img id="end-bottom-left" src="/img/end-bottom-left.png" alt="end-bottom-left">
+      <img id="end-bottom-right" src="/img/end-bottom-right.png" alt="end-bottom-right">
+      <img id="end-top-right" src="/img/end-top-right.png" alt="end-top-right">
+      <img id="end-top-left" src="/img/end-top-left.png" alt="end-top-left">
+
+      <div id="win-game-end">
+        <img src="/img/win-end-screen.png" alt="win-end-screen">
+        <button id="restart-button"><img src="/img/restart-button-img.png" alt="restart-button-img"></button>
+      </div>
+
+      <div id="lose-game-end">
+        <img src="/img/lose-end-screen.png" alt="lose-end-screen">
+        <button id="try-again-button"><img src="/img/restart-button-img.png" alt="try-again-button-img"></button>
     </div>
   </div>
     <script type="text/javascript" src="src/language.js"></script>

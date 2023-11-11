@@ -88,6 +88,7 @@ function updateGradient() {
 
 const startButton = document.getElementById('start-button');
 const restartButton = document.getElementById('restart-button');
+const tryAgainButton = document.getElementById('try-again-button');
 
 const languageGame = new LanguageGame(cards);
 
@@ -116,6 +117,11 @@ window.onload = function () {
   restartButton.addEventListener('click', () => {
     location.reload();
   });
+
+  tryAgainButton.addEventListener('click', () => {
+    location.reload();
+  });
+
 };
 
 function handleClick(card) {
