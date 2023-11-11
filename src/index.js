@@ -50,7 +50,7 @@ window.onload = function () {
       });
     });
 
-    languageGame.timer();
+    // languageGame.timer();
   });
 
   restartButton.addEventListener('click', () => {
@@ -60,7 +60,6 @@ window.onload = function () {
   tryAgainButton.addEventListener('click', () => {
     location.reload();
   });
-
 };
 
 function handleClick(card) {

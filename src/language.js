@@ -15,15 +15,14 @@ class LanguageGame {
     this.shuffleCards();
   }
   start() {
-    this.startScreen.style.display = 'none';
     this.gameScreen.style.display = 'block';
+    this.loadingScreen.style.display = 'flex';
+    this.startScreen.style.display = 'none';
     this.createGameBoard();
-    /*this.loadingScreen.style.display = 'flex';
     setTimeout(() => {
       this.loadingScreen.style.display = 'none';
-      this.gameScreen.style.display = 'block';
-      this.createGameBoard();
-    }, 5000);*/
+      this.timer();
+    }, 5000);
   }
   createGameBoard() {
     let html = '';
