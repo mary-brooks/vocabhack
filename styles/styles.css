@@ -4,9 +4,11 @@ body {
   margin: 0;
   padding: 0;
   margin-bottom: 100px;
+  overflow: hidden; 
 }
 body {
   background-color: white;
+
 }
 #game-intro {
   display: flex;
