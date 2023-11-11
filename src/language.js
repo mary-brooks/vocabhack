@@ -6,6 +6,7 @@ class LanguageGame {
     this.time = 60;
 
     this.startScreen = document.getElementById('game-intro');
+    this.loadingScreen = document.getElementById('game-loading');
     this.gameScreen = document.getElementById('game-screen');
     this.gameBoard = document.getElementById('game-board');
     this.gameEndScreen = document.getElementById('game-end');
@@ -16,8 +17,13 @@ class LanguageGame {
 
   start() {
     this.startScreen.style.display = 'none';
-    this.gameScreen.style.display = 'block';
-    this.createGameBoard();
+    this.loadingScreen.style.display = 'flex';
+
+    setTimeout(() => {
+      this.loadingScreen.style.display = 'none';
+      this.gameScreen.style.display = 'block';
+      this.createGameBoard();
+    }, 5000);
   }
 
   createGameBoard() {
