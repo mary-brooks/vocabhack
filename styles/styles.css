@@ -1,14 +1,21 @@
+@font-face {
+  font-family: 'dosisregular';
+  src: url('/font/dosis-regular-webfont.woff2') format('woff2'),
+    url('/font/dosis-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   margin-bottom: 100px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 body {
   background-color: white;
-
 }
 #game-intro {
   display: flex;
@@ -91,12 +98,14 @@ body {
   align-items: center;
 }
 
-#timer-container, #points-container {
+#timer-container,
+#points-container {
+  font-family: 'dosisregular';
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10%;
   padding: 10px;
-  margin: 10px 0 10px 100px; 
-  width: fit-content; 
+  margin: 10px 0 10px 100px;
+  width: fit-content;
   height: auto;
 }
 
@@ -152,13 +161,12 @@ h2 {
 }
 
 .card.clicked {
-  outline: 2px solid #76e6ff
+  outline: 2px solid #76e6ff;
 }
 
 .card.incorrect {
-  outline: 2px solid #ffaae3
+  outline: 2px solid #ffaae3;
 }
- 
 
 #game-end {
   display: none;
