@@ -80,13 +80,13 @@ h2 {
 }
 
 .card.clicked {
-  outline: 2px solid blue;
+  outline: 2px solid #76e6ff
 }
 
 .card.incorrect {
-  outline: 2px solid red;
+  outline: 2px solid #ffaae3
 }
-
+ 
 #game-screen {
   display: none;
   position: relative;
