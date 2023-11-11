@@ -87,7 +87,7 @@ class LanguageGame {
     this.pickedCards.forEach(pickedCard => {
       this.cardPairs.push(pickedCard.getAttribute('data-card-name'));
     });
-    this.checkIfFinished();
+    this.checkIfWon();
     this.shuffleCards();
     this.updateGameBoard();
   }
@@ -103,18 +103,19 @@ class LanguageGame {
       this.pickedCards.length = 0;
     }, 500);
   }
-  checkIfFinished() {
+  checkIfWon() {
     if (this.cardPairs.length === this.cards.length) {
       this.winGame();
-    } else if (this.time < 0) {
-      clearInterval(timeLeft);
-      this.loseGame();
     }
   }
   timer() {
     const timeLeft = setInterval(() => {
       this.timeDisplay.innerText = this.time;
       this.time--;
+      if (this.time < 0) {
+        clearInterval(timeLeft);
+        this.loseGame();
+      }
     }, 1000);
   }
   // playSound(card) {
@@ -124,7 +125,7 @@ class LanguageGame {
   //     sound.play();
   //   }
   // }
- winGame() {
+  winGame() {
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.winScreen.style.display = 'flex';
