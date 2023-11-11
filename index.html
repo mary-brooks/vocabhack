@@ -26,10 +26,17 @@
     <!-- #game-screen is initially hidden using CSS style display: none -->
     <div id="game-screen">
       <div id="gradient"></div>
-      <div>
-        <p>You have <br /><span id="timer"></span><br />seconds remaining</p>
+      <div id="game-screen-container">
+        <div>
+          <div id="timer-container">
+            <p>Time remaining:<br /><span id="timer"></span><br /></p>
+          </div>
+          <div id="points-container">
+            <p>You've matched <br /><span id="">0</span><br />cards</p>
+          </div>
+        </div>
+        <div id="game-board"></div>
       </div>
-      <div id="game-board"></div>
     </div>
   </div>
     <!-- #game-end is initially hidden using CSS style display: none -->
@@ -37,7 +44,7 @@
       <div id="end-container">
       <h1>Game Over</h1>
       <br />
-      <button id="restart-button">Restart</button>
+      <button id="restart-button"><img src="/img/restart-button-img.png" alt="restart-button-img"></button>
     </div>
   </div>
     <script type="text/javascript" src="src/language.js"></script>
