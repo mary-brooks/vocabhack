@@ -15,9 +15,57 @@ body {
   align-items: center;
   height: 100vh;
 }
-img {
-  max-width: 100%;
+#lets-play {
+  width: 15%;
   height: auto;
+}
+#bottom-left-book {
+  width: 15%;
+  height: auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+#bottom-right-book {
+  width: auto;
+  height: 45%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+#top-left-book {
+  width: 15%;
+  height: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+#top-right-book {
+  width: 15%;
+  height: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+#logo {
+  width: 60%;
+  height: auto;
+  z-index: 2;
+  padding: 2% 0;
+}
+#start-button {
+  width: 20%;
+  height: auto;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+#start-button img {
+  width: 100%;
+  height: auto;
+}
+#game-loading {
+  display: none;
 }
 #gradient {
   width: 100%;
