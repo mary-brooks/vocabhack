@@ -84,7 +84,7 @@ class LanguageGame {
             handleClick(card);
           });
         });
-      }, 500);
+      }, 800);
     } else {
       this.incorrectMatch();
     }
@@ -107,7 +107,7 @@ class LanguageGame {
         pickedCard.classList.remove('clicked');
       });
       this.pickedCards.length = 0;
-    }, 500);
+    }, 800);
   }
   checkIfWon() {
     if (this.cardPairs.length === this.cards.length) {
