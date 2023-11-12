@@ -1,28 +1,28 @@
 const cards = [
-  { name: 'apple', img: 'apple.png' },
-  { name: 'banana', img: 'banana.png' },
-  { name: 'blueberry', img: 'blueberry.png' },
-  { name: 'cherry', img: 'cherry.png' },
-  { name: 'grape', img: 'grapes.png' },
-  { name: 'lemon', img: 'lemon.png' },
-  { name: 'orange', img: 'orange.png' },
-  { name: 'peach', img: 'peach.png' },
-  { name: 'pear', img: 'pear.png' },
-  { name: 'pineapple', img: 'pineapple.png' },
-  { name: 'strawberry', img: 'strawberry.png' },
-  { name: 'watermelon', img: 'watermelon.png' },
-  { name: 'apple', img: 'apple-txt.png', audio: 'apple.mp3' },
-  { name: 'banana', img: 'banana-txt.png' },
-  { name: 'blueberry', img: 'blueberry-txt.png' },
-  { name: 'cherry', img: 'cherry-txt.png' },
-  { name: 'grape', img: 'grape-txt.png' },
-  { name: 'lemon', img: 'lemon-txt.png' },
-  { name: 'orange', img: 'orange-txt.png' },
-  { name: 'peach', img: 'peach-txt.png' },
-  { name: 'pear', img: 'pear-txt.png' },
-  { name: 'pineapple', img: 'pineapple-txt.png' },
-  { name: 'strawberry', img: 'strawberry-txt.png' },
-  { name: 'watermelon', img: 'watermelon-txt.png' },
+  { name: 'apple', img: 'apple.png', type: 'img' },
+  { name: 'banana', img: 'banana.png', type: 'img' },
+  { name: 'blueberry', img: 'blueberry.png', type: 'img' },
+  { name: 'cherry', img: 'cherry.png', type: 'img' },
+  { name: 'grape', img: 'grapes.png', type: 'img' },
+  { name: 'lemon', img: 'lemon.png', type: 'img' },
+  { name: 'orange', img: 'orange.png', type: 'img' },
+  { name: 'peach', img: 'peach.png', type: 'img' },
+  { name: 'pear', img: 'pear.png', type: 'img' },
+  { name: 'pineapple', img: 'pineapple.png', type: 'img' },
+  { name: 'strawberry', img: 'strawberry.png', type: 'img' },
+  { name: 'watermelon', img: 'watermelon.png', type: 'img' },
+  { name: 'apple', img: 'apple-txt.png', type: 'text' },
+  { name: 'banana', img: 'banana-txt.png', type: 'text' },
+  { name: 'blueberry', img: 'blueberry-txt.png', type: 'text' },
+  { name: 'cherry', img: 'cherry-txt.png', type: 'text' },
+  { name: 'grape', img: 'grape-txt.png', type: 'text' },
+  { name: 'lemon', img: 'lemon-txt.png', type: 'text' },
+  { name: 'orange', img: 'orange-txt.png', type: 'text' },
+  { name: 'peach', img: 'peach-txt.png', type: 'text' },
+  { name: 'pear', img: 'pear-txt.png', type: 'text' },
+  { name: 'pineapple', img: 'pineapple-txt.png', type: 'text' },
+  { name: 'strawberry', img: 'strawberry-txt.png', type: 'text' },
+  { name: 'watermelon', img: 'watermelon-txt.png', type: 'text' },
 ];
 
 const startButton = document.getElementById('start-button');
@@ -32,13 +32,6 @@ const tryAgainButton = document.getElementById('try-again-button');
 const languageGame = new LanguageGame(cards);
 
 window.onload = function () {
-  /* function playSound() {
-    const sound = new Audio('/sound/apple.mp3');
-    sound.play();
-  }
-
-  playSound(); */
-
   setInterval(updateGradient, 10);
 
   startButton.addEventListener('click', function () {

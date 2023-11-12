@@ -28,7 +28,7 @@ class LanguageGame {
     let html = '';
     this.cards.forEach(card => {
       html += `
-      <div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat">
+      <div class = "card" data-card-name = "${card.name}" type = "${card.type}" style = "background: url(img/${card.img}) no-repeat">
       </div>
       `;
     });
@@ -40,17 +40,24 @@ class LanguageGame {
       if (this.cardPairs.includes(card.name)) {
         newHtml += `<div class = "card matched" data-card-name = "${card.name}"></div>`;
       } else {
-        newHtml += `<div class = "card" data-card-name = "${card.name}" style = "background: url(img/${card.img}) no-repeat"></div>`;
+        newHtml += `<div class = "card" data-card-name = "${card.name}" type = "${card.type}" style = "background: url(img/${card.img}) no-repeat"></div>`;
       }
     });
     this.gameBoard.innerHTML = newHtml;
     this.pickedCards.length = 0;
   }
   selectCard(clickedCard) {
+    const clickedCardName = clickedCard.getAttribute('data-card-name');
+    const typeOfCard = clickedCard.getAttribute('type');
+
     if (!this.pickedCards.includes(clickedCard)) {
       clickedCard.classList.add('clicked');
       this.pickedCards.push(clickedCard);
-      // game.playSound(card);
+
+      if (typeOfCard === 'text') {
+        const sound = new Audio(`/sound/${clickedCardName}.mp3`);
+        sound.play();
+      }
     }
   }
   shuffleCards() {
@@ -117,13 +124,7 @@ class LanguageGame {
       }
     }, 1000);
   }
-  // playSound(card) {
-  //   const cardName = card.getAttribute('data-type-name');
-  //   if (card.getAttribute('text')) {
-  //     const sound = new Audio(`/sound/${cardName}.mp3`);
-  //     sound.play();
-  //   }
-  // }
+
   winGame() {
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
