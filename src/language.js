@@ -11,13 +11,13 @@ class LanguageGame {
     this.timeDisplay = document.getElementById('timer');
     this.startTime = null;
     this.endTime = null;
-    this.realTimeScore = document.getElementById ('currentScore');
+    this.realTimeScore = document.getElementById('currentScore');
     this.gameBoard = document.getElementById('game-board');
     this.gameEndScreen = document.getElementById('game-end');
     this.winScreen = document.getElementById('win-game-end');
     this.loseScreen = document.getElementById('lose-game-end');
     this.backgroundSound = document.getElementById('background-sound');
-    this.endGameAudio = document.getElementById('game-end-audio'); 
+    this.endGameAudio = document.getElementById('game-end-audio');
     this.shuffleCards();
   }
 
@@ -56,7 +56,7 @@ class LanguageGame {
     this.gameBoard.innerHTML = newHtml;
     this.pickedCards.length = 0;
   }
-  
+
   selectCard(clickedCard) {
     const clickedCardName = clickedCard.getAttribute('data-card-name');
     const typeOfCard = clickedCard.getAttribute('type');
@@ -108,7 +108,6 @@ class LanguageGame {
     this.checkIfWon();
     this.shuffleCards();
     this.updateGameBoard();
-
   }
   incorrectMatch() {
     this.pickedCards.forEach(pickedCard => {
@@ -138,16 +137,16 @@ class LanguageGame {
       }
     }, 1000);
   }
-  playBackgroundSound () {
+  playBackgroundSound() {
     let audioHtml = `<audio id="background-sound" src="/sound/background-sound.mp3" autoplay loop>
     <p>If you are reading this, it is because your browser does not support the audio element.</p>
-    </audio>`
+    </audio>`;
 
-    this.endGameAudio.innerHTML = audioHtml; 
+    this.endGameAudio.innerHTML = audioHtml;
   }
 
   winGame() {
-    this.playBackgroundSound(); 
+    this.playBackgroundSound();
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.winScreen.style.display = 'flex';
@@ -167,4 +166,4 @@ class LanguageGame {
     totalScore.innerText = this.realTimeScore.innerText;
     this.winScreen.style.display = 'none';
   }
-  }
+}
