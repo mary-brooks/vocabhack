@@ -22,7 +22,6 @@ class LanguageGame {
   }
 
   start() {
-    this.playBackgroundSound();
     this.gameScreen.style.display = 'block';
     this.loadingScreen.style.display = 'flex';
     this.startScreen.style.display = 'none';
@@ -31,7 +30,7 @@ class LanguageGame {
     setTimeout(() => {
       this.loadingScreen.style.display = 'none';
       this.timer();
-      this.backgroundSound.remove();
+      this.backgroundSound.volume = 0.2;
     }, 5000);
   }
 
@@ -147,7 +146,7 @@ class LanguageGame {
   }
 
   winGame() {
-    this.playBackgroundSound();
+    this.backgroundSound.volume = 1;
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.winScreen.style.display = 'flex';
@@ -159,7 +158,7 @@ class LanguageGame {
   }
 
   loseGame() {
-    this.playBackgroundSound();
+    this.backgroundSound.volume = 1;
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.loseScreen.style.display = 'flex';
