@@ -3,7 +3,7 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
-    this.time = 2;
+    this.time = 60;
     this.score = 0;
     this.startScreen = document.getElementById('game-intro');
     this.loadingScreen = document.getElementById('game-loading');
