@@ -199,13 +199,12 @@ body {
 #game-end {
   display: none;
 }
-
-#win-game-end {
-  display: none;
-}
-
+#win-game-end,
 #lose-game-end {
   display: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
 
 #end-bottom-left {
@@ -254,18 +253,36 @@ body {
   width: 50%;
   height: auto;
 }
-
-#win-game-end,
-#lose-game-end {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+#win-scratch {
+  width: 25%;
+  padding: 3% 0 0 0%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  opacity: 0.8;
+}
+#lose-scratch {
+  width: 20%;
+  padding: 3.5% 0 0 0;
+  height: auto;
+  position: fixed;
+  top: 0;
+  opacity: 0.8;
 }
 
-#win-game-end > img,
-#lose-game-end > img {
+#win-game-end p,
+#lose-game-end p {
+  font-family: 'dosisregular';
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 2% 0 0 0;
+  position: fixed;
+  top: 0
+}
+.end-screen {
   width: 45%;
   height: auto;
-  padding: 40px 0 30px 0;
+  display: block;
+  margin: auto;
+  padding: 10% 0 2% 0;
 }

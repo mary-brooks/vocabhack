@@ -3,7 +3,7 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
-    this.time = 60;
+    this.time = 2;
     this.score = 0;
     this.startScreen = document.getElementById('game-intro');
     this.loadingScreen = document.getElementById('game-loading');
@@ -140,6 +140,7 @@ class LanguageGame {
     const elapsedTime = Math.floor((this.endTime - this.startTime) / 1000);
     const totalTime = document.getElementById('timeTotal');
     totalTime.innerText = elapsedTime;
+    this.loseScreen.style.display = 'none';
 
   }
   loseGame() {
@@ -148,5 +149,6 @@ class LanguageGame {
     this.loseScreen.style.display = 'flex';
     const totalScore = document.getElementById('scoreTotal');
     totalScore.innerText = this.realTimeScore.innerText;
+    this.winScreen.style.display = 'none';
   }
 }

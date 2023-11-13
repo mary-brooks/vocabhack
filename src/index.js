@@ -54,7 +54,6 @@ window.onload = function () {
 };
 
 function handleClick(card) {
-  console.log('clicked');
 
   languageGame.selectCard(card);
 
