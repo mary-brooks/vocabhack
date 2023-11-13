@@ -4,14 +4,16 @@ class LanguageGame {
     this.pickedCards = [];
     this.cardPairs = [];
     this.time = 60;
+    this.score = 0;
     this.startScreen = document.getElementById('game-intro');
     this.loadingScreen = document.getElementById('game-loading');
     this.gameScreen = document.getElementById('game-screen');
+    this.timeDisplay = document.getElementById('timer');
+    this.realTimeScore = document.getElementById ('currentScore');
     this.gameBoard = document.getElementById('game-board');
     this.gameEndScreen = document.getElementById('game-end');
     this.winScreen = document.getElementById('win-game-end');
     this.loseScreen = document.getElementById('lose-game-end');
-    this.timeDisplay = document.getElementById('timer');
     this.shuffleCards();
   }
   start() {
@@ -93,9 +95,11 @@ class LanguageGame {
     this.pickedCards.forEach(pickedCard => {
       this.cardPairs.push(pickedCard.getAttribute('data-card-name'));
     });
+    this.realTimeScore.innerText = parseInt(this.realTimeScore.innerText) + 1;
     this.checkIfWon();
     this.shuffleCards();
     this.updateGameBoard();
+
   }
   incorrectMatch() {
     this.pickedCards.forEach(pickedCard => {
@@ -134,5 +138,7 @@ class LanguageGame {
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.loseScreen.style.display = 'flex';
+    const totalScore = document.getElementById('scoreTotal');
+    totalScore.innerText = this.realTimeScore.innerText;
   }
 }
