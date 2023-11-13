@@ -25,6 +25,7 @@ class LanguageGame {
     this.gameScreen.style.display = 'block';
     this.loadingScreen.style.display = 'flex';
     this.startScreen.style.display = 'none';
+    this.backgroundSound.play();
     this.createGameBoard();
     this.startTime = new Date();
     setTimeout(() => {
