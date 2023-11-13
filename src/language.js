@@ -17,18 +17,21 @@ class LanguageGame {
     this.winScreen = document.getElementById('win-game-end');
     this.loseScreen = document.getElementById('lose-game-end');
     this.shuffleCards();
+    this.backgroundAudio = document.getElementById("background-sound");
   }
+
   start() {
     this.gameScreen.style.display = 'block';
     this.loadingScreen.style.display = 'flex';
     this.startScreen.style.display = 'none';
     this.createGameBoard();
-    this.startTime = new Date()
+    this.startTime = new Date();
     setTimeout(() => {
       this.loadingScreen.style.display = 'none';
       this.timer();
     }, 5000);
   }
+
   createGameBoard() {
     let html = '';
     this.cards.forEach(card => {
@@ -43,14 +46,15 @@ class LanguageGame {
     let newHtml = '';
     this.cards.forEach(card => {
       if (this.cardPairs.includes(card.name)) {
-        newHtml += `<div class = "card matched" data-card-name = "${card.name}"></div>`;
+        newHtml += `<div class="card matched" data-card-name="${card.name}"></div>`;
       } else {
-        newHtml += `<div class = "card" data-card-name = "${card.name}" type = "${card.type}" style = "background: url(img/${card.img}) no-repeat"></div>`;
+        newHtml += `<div class="card" data-card-name="${card.name}" type="${card.type}" style="background: url(img/${card.img}) no-repeat"></div>`;
       }
     });
     this.gameBoard.innerHTML = newHtml;
     this.pickedCards.length = 0;
   }
+  
   selectCard(clickedCard) {
     const clickedCardName = clickedCard.getAttribute('data-card-name');
     const typeOfCard = clickedCard.getAttribute('type');
@@ -121,6 +125,7 @@ class LanguageGame {
       this.winGame();
     }
   }
+
   timer() {
     const timeLeft = setInterval(() => {
       this.timeDisplay.innerText = this.time;
@@ -136,13 +141,13 @@ class LanguageGame {
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.winScreen.style.display = 'flex';
-    this.endTime = new Date()
+    this.endTime = new Date();
     const elapsedTime = Math.floor((this.endTime - this.startTime) / 1000);
     const totalTime = document.getElementById('timeTotal');
     totalTime.innerText = elapsedTime;
     this.loseScreen.style.display = 'none';
-
   }
+
   loseGame() {
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
@@ -151,4 +156,4 @@ class LanguageGame {
     totalScore.innerText = this.realTimeScore.innerText;
     this.winScreen.style.display = 'none';
   }
-}
+  }

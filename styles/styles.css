@@ -20,7 +20,6 @@ body {
 body {
   background-color: white;
 }
-
 /* intro screen styles */
 
 #game-intro {
@@ -137,22 +136,28 @@ body {
   height: 100%;
 }
 
+#live-info {
+  width: 25%;
+  margin-left: 0;
+}
+
 #timer-container,
 #points-container {
   font-family: 'dosisregular';
+  font-weight: bold;
+  font-size: 2.5;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10%;
-  padding: 10px;
+  padding: 10%;
   margin: 10px 0 10px 100px;
   width: fit-content;
   height: auto;
 }
 
-#timer {
-  width: 200px;
-  height: 50px;
-  margin: 0px auto;
-  margin-bottom: 20px;
+#timer,
+#currentScore {
+font-size: 3em;
 }
 
 #game-board {
@@ -160,7 +165,7 @@ body {
   height: 600px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 2.5%;
-  margin: 22.5px auto 0 auto;
+  margin: 22.5px auto 0 0;
 }
 
 .card {
@@ -286,3 +291,28 @@ body {
   margin: auto;
   padding: 10% 0 2% 0;
 }
+
+ /* Media Query for Mobile Devices */ 
+ @media (max-width: 480px) { 
+
+} 
+
+/* Media Query for low resolution  Tablets, Ipads */ 
+@media (min-width: 481px) and (max-width: 767px) { 
+
+} 
+
+/* Media Query for Tablets Ipads portrait mode */ 
+@media (min-width: 768px) and (max-width: 1024px){ 
+
+} 
+
+/* Media Query for Laptops and Desktops */ 
+@media (min-width: 1025px) and (max-width: 1280px){ 
+
+} 
+
+/* Media Query for Large screens */ 
+@media (min-width: 1281px) { 
+
+} 
