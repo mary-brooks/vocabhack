@@ -22,6 +22,7 @@ class LanguageGame {
   }
 
   start() {
+    this.playBackgroundSound();
     this.gameScreen.style.display = 'block';
     this.loadingScreen.style.display = 'flex';
     this.startScreen.style.display = 'none';
