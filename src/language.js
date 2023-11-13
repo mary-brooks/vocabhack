@@ -138,13 +138,13 @@ class LanguageGame {
       }
     }, 1000);
   }
-  playBackgroundSound() {
+ /* playBackgroundSound() {
     let audioHtml = `<audio id="background-sound" src="/sound/background-sound.mp3" autoplay loop>
     <p>If you are reading this, it is because your browser does not support the audio element.</p>
     </audio>`;
 
     this.endGameAudio.innerHTML = audioHtml;
-  }
+  }*/
 
   winGame() {
     this.backgroundSound.volume = 1;
