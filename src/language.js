@@ -3,7 +3,7 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
-    this.time = 60;
+    this.time = 2;
     this.score = 0;
     this.startScreen = document.getElementById('game-intro');
     this.loadingScreen = document.getElementById('game-loading');
@@ -16,8 +16,9 @@ class LanguageGame {
     this.gameEndScreen = document.getElementById('game-end');
     this.winScreen = document.getElementById('win-game-end');
     this.loseScreen = document.getElementById('lose-game-end');
+    this.backgroundSound = document.getElementById('background-sound');
+    this.endGameAudio = document.getElementById('game-end-audio'); 
     this.shuffleCards();
-    this.backgroundAudio = document.getElementById("background-sound");
   }
 
   start() {
@@ -29,6 +30,7 @@ class LanguageGame {
     setTimeout(() => {
       this.loadingScreen.style.display = 'none';
       this.timer();
+      this.backgroundSound.remove();
     }, 5000);
   }
 
@@ -118,7 +120,7 @@ class LanguageGame {
         pickedCard.classList.remove('clicked');
       });
       this.pickedCards.length = 0;
-    }, 800);
+    }, 500);
   }
   checkIfWon() {
     if (this.cardPairs.length === this.cards.length) {
@@ -136,8 +138,16 @@ class LanguageGame {
       }
     }, 1000);
   }
+  playBackgroundSound () {
+    let audioHtml = `<audio id="background-sound" src="/sound/background-sound.mp3" autoplay loop>
+    <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>`
+
+    this.endGameAudio.innerHTML = audioHtml; 
+  }
 
   winGame() {
+    this.playBackgroundSound(); 
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.winScreen.style.display = 'flex';
@@ -145,10 +155,11 @@ class LanguageGame {
     const elapsedTime = Math.floor((this.endTime - this.startTime) / 1000);
     const totalTime = document.getElementById('timeTotal');
     totalTime.innerText = elapsedTime;
-    this.loseScreen.style.display = 'none';
+    this.loseScreen.remove();
   }
 
   loseGame() {
+    this.playBackgroundSound();
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.loseScreen.style.display = 'flex';
