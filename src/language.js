@@ -49,9 +49,9 @@ class LanguageGame {
     let newHtml = '';
     this.cards.forEach(card => {
       if (this.cardPairs.includes(card.name)) {
-        newHtml += `<div class="card matched" data-card-name="${card.name}"></div>`;
+        newHtml += `<div class="card matched card-reshuffle-animation" data-card-name="${card.name}"></div>`;
       } else {
-        newHtml += `<div class="card" data-card-name="${card.name}" type="${card.type}" style="background: url(img/${card.img}) no-repeat"></div>`;
+        newHtml += `<div class="card card-reshuffle-animation" data-card-name="${card.name}" type="${card.type}" style="background: url(img/${card.img}) no-repeat"></div>`; // Add the 'card-reshuffle-animation' class here
       }
     });
     this.gameBoard.innerHTML = newHtml;
@@ -85,6 +85,7 @@ class LanguageGame {
       return false;
     }
   }
+
   matchCards() {
     const firstCardName = this.pickedCards[0].getAttribute('data-card-name');
     const secondCardName = this.pickedCards[1].getAttribute('data-card-name');
@@ -96,32 +97,25 @@ class LanguageGame {
             handleClick(card);
           });
         });
+        this.pickedCards.forEach(pickedCard => {
+          pickedCard.classList.remove('card-reshuffle-animation');
+        });
       }, 500);
     } else {
       this.incorrectMatch();
     }
   }
+
   correctMatch() {
-    this.pickedCards.forEach(pickedCard => {
-      this.cardPairs.push(pickedCard.getAttribute('data-card-name'));
-    });
-    this.realTimeScore.innerText = parseInt(this.realTimeScore.innerText) + 1;
-    this.checkIfWon();
-    this.shuffleCards();
-    this.updateGameBoard();
-  }
-  incorrectMatch() {
-    this.pickedCards.forEach(pickedCard => {
-      pickedCard.classList.add('incorrect');
-    });
-    setTimeout(() => {
       this.pickedCards.forEach(pickedCard => {
-        pickedCard.classList.remove('incorrect');
-        pickedCard.classList.remove('clicked');
+        this.cardPairs.push(pickedCard.getAttribute('data-card-name'));
+        pickedCard.classList.add('card-reshuffle-animation');
       });
-      this.pickedCards.length = 0;
-    }, 500);
-  }
+      this.realTimeScore.innerText = parseInt(this.realTimeScore.innerText) + 1;
+      this.checkIfWon();
+      this.shuffleCards();
+      this.updateGameBoard();
+    }
   checkIfWon() {
     if (this.cardPairs.length === this.cards.length) {
       this.winGame();

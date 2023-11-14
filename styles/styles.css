@@ -114,6 +114,27 @@ body {
 
 /* game screen styles */
 
+@-webkit-keyframes card-reshuffle-animation {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes card-reshuffle-animation {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 #gradient {
   width: 100%;
   height: 100%;
@@ -180,6 +201,11 @@ font-size: 3em;
 
 .card.matched {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.card-reshuffle-animation {
+	-webkit-animation: card-reshuffle-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: card-reshuffle-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .card:hover {
