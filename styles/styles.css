@@ -213,6 +213,9 @@ font-size: 3em;
 
 .card.matched {
   background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  cursor: none;
+  pointer-events: none;
 }
 
 .card-reshuffle-animation {
@@ -226,7 +229,7 @@ font-size: 3em;
 
 .card.matched:hover {
   outline: none;
-  cursor: auto;
+  cursor: none
 }
 
 .card.clicked {
