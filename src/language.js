@@ -3,7 +3,7 @@ class LanguageGame {
     this.cards = cards;
     this.pickedCards = [];
     this.cardPairs = [];
-    this.time = 60;
+    this.time = 59;
     this.score = 0;
     this.startScreen = document.getElementById('game-intro');
     this.loadingScreen = document.getElementById('game-loading');
@@ -27,10 +27,10 @@ class LanguageGame {
     this.startScreen.style.display = 'none';
     this.backgroundSound.play();
     this.createGameBoard();
-    this.startTime = new Date();
     setTimeout(() => {
-      this.loadingScreen.style.display = 'none';
       this.timer();
+      this.loadingScreen.style.display = 'none';
+      this.startTime = new Date();
       this.backgroundSound.volume = 0.1;
     }, 5000);
   }
@@ -146,11 +146,11 @@ class LanguageGame {
   }
 
   winGame() {
+    this.endTime = new Date();
     this.backgroundSound.volume = 1;
     this.gameScreen.style.display = 'none';
     this.gameEndScreen.style.display = 'block';
     this.winScreen.style.display = 'flex';
-    this.endTime = new Date();
     const elapsedTime = Math.floor((this.endTime - this.startTime) / 1000);
     const totalTime = document.getElementById('timeTotal');
     totalTime.innerText = elapsedTime;
