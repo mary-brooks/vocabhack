@@ -8,7 +8,7 @@ const colors = new Array(
   
   let step = 0;
   let colorIndices = [0, 1, 2, 3];
-  let gradientSpeed = 0.015;
+  let gradientSpeed = 0.010;
   
   function updateGradient() {
     if ($ === undefined) return;
