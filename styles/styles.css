@@ -117,21 +117,33 @@ body {
 @-webkit-keyframes card-reshuffle-animation {
   0% {
     -webkit-transform: scale(0.5);
-            transform: scale(0.5);
+     transform: scale(0.5);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+     transform: scale(1);
   }
 }
 @keyframes card-reshuffle-animation {
   0% {
     -webkit-transform: scale(0.5);
-            transform: scale(0.5);
+    transform: scale(0.5);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes wrong-match-animation {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
   }
 }
 
@@ -205,7 +217,7 @@ font-size: 3em;
 
 .card-reshuffle-animation {
 	-webkit-animation: card-reshuffle-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: card-reshuffle-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: card-reshuffle-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .card:hover {
@@ -223,6 +235,9 @@ font-size: 3em;
 
 .card.incorrect {
   outline: 2px solid #ffaae3;
+}
+.card.wrong-match-animation {
+  animation: wrong-match-animation 0.5s ease-in-out both;
 }
 
 /* game end screens styles */

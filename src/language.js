@@ -121,6 +121,18 @@ class LanguageGame {
       this.winGame();
     }
   }
+  incorrectMatch() {
+    this.pickedCards.forEach(pickedCard => {
+      pickedCard.classList.add('incorrect', 'wrong-match-animation');
+    });
+  
+    setTimeout(() => {
+      this.pickedCards.forEach(pickedCard => {
+        pickedCard.classList.remove('incorrect', 'clicked', 'wrong-match-animation', 'card-reshuffle-animation');
+      });
+      this.pickedCards.length = 0;
+    }, 500);
+  }  
 
   timer() {
     const timeLeft = setInterval(() => {
