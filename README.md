@@ -23,7 +23,7 @@ Check out the live demo [here](https://vocabhack.netlify.app/)
 - **Timer:** Challenge yourself with a built-in timer to track your performance and add an element of challenge to the game.
 - **Audio Pronunciation:** Learn pronunciation by hearing the word when clicking on a card.
 
-- ## 🔜 Additional Features We Are Currently Working On
+### 🔜 Additional Features We Are Currently Working On
 
 - [ ] Responsive Design
 - [ ] Mobile Version
